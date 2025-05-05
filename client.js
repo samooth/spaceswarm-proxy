@@ -1,9 +1,9 @@
 const EventEmitter = require('events')
-const HyperswarmProxyStream = require('./')
+const SpaceswarmProxyStream = require('./')
 
 const NOT_CONNECTED = 'Not connected to proxy'
 
-module.exports = class HyperswarmProxyClient extends EventEmitter {
+module.exports = class SpaceswarmProxyClient extends EventEmitter {
   constructor (options = {}) {
     super()
 
@@ -50,7 +50,7 @@ module.exports = class HyperswarmProxyClient extends EventEmitter {
     this.disconnect()
 
     this._connection = connection
-    this._protocol = new HyperswarmProxyStream(connection)
+    this._protocol = new SpaceswarmProxyStream(connection)
 
     this._protocol.on('stream', this._handleStream)
     this._protocol.on('on_peer', this._handlePeer)
